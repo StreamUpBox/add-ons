@@ -26,6 +26,12 @@
       ],
       "Github/*": [
         "dist/github/*"
+      ],
+      "Bucket": [
+        "dist/bucket"
+      ],
+      "Bucket/*": [
+        "dist/bucket/*"
       ]
     }
   }

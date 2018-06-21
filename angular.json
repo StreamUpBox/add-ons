@@ -23,9 +23,13 @@
               "src/assets"
             ],
             "styles": [
+              {
+                "input": "node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
+              },
               "node_modules/angular-bootstrap-md/scss/bootstrap/bootstrap.scss",
               "node_modules/angular-bootstrap-md/scss/mdb-free.scss",
-              "src/styles.css"
+              "src/assets/fonts/material-icons.css",
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -74,7 +78,7 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "styles.css"
+              "styles.scss"
             ],
             "scripts": [],
             "assets": [
@@ -151,6 +155,46 @@
             "tsConfig": [
               "projects/github/tsconfig.lib.json",
               "projects/github/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "Bucket": {
+      "root": "projects/bucket",
+      "sourceRoot": "projects/bucket/src",
+      "projectType": "library",
+      "prefix": "A",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/bucket/tsconfig.lib.json",
+            "project": "projects/bucket/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/bucket/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/bucket/src/test.ts",
+            "tsConfig": "projects/bucket/tsconfig.spec.json",
+            "karmaConfig": "projects/bucket/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/bucket/tsconfig.lib.json",
+              "projects/bucket/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
