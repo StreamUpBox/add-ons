@@ -21,12 +21,6 @@
       "dom"
     ],
     "paths": {
-      "Github": [
-        "dist/github"
-      ],
-      "Github/*": [
-        "dist/github/*"
-      ],
       "Bucket": [
         "dist/bucket"
       ],
