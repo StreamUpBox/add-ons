@@ -32,6 +32,12 @@
       ],
       "Bucket/*": [
         "dist/bucket/*"
+      ],
+      "NGithub": [
+        "dist/ngithub"
+      ],
+      "NGithub/*": [
+        "dist/ngithub/*"
       ]
     }
   }

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { createBitbucketAPI } from 'bitbucket-api-v2';
 @Component({
   selector: 'A-Bucket',
   template: `

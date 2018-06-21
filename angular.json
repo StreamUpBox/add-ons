@@ -202,6 +202,46 @@
           }
         }
       }
+    },
+    "NGithub": {
+      "root": "projects/ngithub",
+      "sourceRoot": "projects/ngithub/src",
+      "projectType": "library",
+      "prefix": "A",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngithub/tsconfig.lib.json",
+            "project": "projects/ngithub/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/ngithub/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngithub/src/test.ts",
+            "tsConfig": "projects/ngithub/tsconfig.spec.json",
+            "karmaConfig": "projects/ngithub/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngithub/tsconfig.lib.json",
+              "projects/ngithub/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "clickTest"
