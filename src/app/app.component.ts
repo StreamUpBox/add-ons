@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  db(){
+    console.log('double click');
+  }
+  single(){
+    console.log('single click');
+  }
 }

@@ -1,5 +1,9 @@
 {
   "compileOnSave": false,
+  "include": [
+    "src/**/*.ts",
+    "node_modules/angular-bootstrap-md/**/*.ts"
+  ],
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
@@ -15,6 +19,14 @@
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
+    "paths": {
+      "Github": [
+        "dist/github"
+      ],
+      "Github/*": [
+        "dist/github/*"
+      ]
+    }
   }
 }

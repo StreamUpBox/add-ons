@@ -23,6 +23,8 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/angular-bootstrap-md/scss/bootstrap/bootstrap.scss",
+              "node_modules/angular-bootstrap-md/scss/mdb-free.scss",
               "src/styles.css"
             ],
             "scripts": []
@@ -110,6 +112,46 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "Github": {
+      "root": "projects/github",
+      "sourceRoot": "projects/github/src",
+      "projectType": "library",
+      "prefix": "A",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/github/tsconfig.lib.json",
+            "project": "projects/github/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/github/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/github/src/test.ts",
+            "tsConfig": "projects/github/tsconfig.spec.json",
+            "karmaConfig": "projects/github/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/github/tsconfig.lib.json",
+              "projects/github/tsconfig.spec.json"
+            ],
             "exclude": [
               "**/node_modules/**"
             ]
