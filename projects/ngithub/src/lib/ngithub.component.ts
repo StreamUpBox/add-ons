@@ -1,4 +1,4 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import GitHub from 'github-api';
 import {ApiService} from './api/api.service';
 
@@ -18,30 +18,31 @@ export class NGithubComponent implements OnInit {
        * */
     public repos: any[];
     @Input() token: string;
-
+    @Output() clone = new EventEmitter();
     constructor(private api: ApiService) {
     }
+    waiting: boolean = true;
 
     ngOnInit() {
+
         const gh = new GitHub({
-            username: 'richard457',
-            password: 'fhdfjhjh@8r8r78bcbf!@&*'
-            /* also acceptable:
-               token: 'MY_OAUTH_TOKEN'
-             */
+            // username: 'richard457',
+            // password: 'fhdfjhjh@8r8r78bcbf!@&*'
+           //  also acceptable:
+               token: this.token
+
         });
         const me = gh.getUser(); // no user specified defaults to the user for whom credentials were provided
         me.listRepos((err, repos) => {
+            this.waiting = false;
             this.repos = repos;
+            console.log(repos);
         });
     }
 
 // ng generate component foo --project=example-ng6-lib
     takeAction(repo) {
-        console.log(repo);
-        // this.api.copyToYegoBox(repo).subscribe(res => {
-        //     console.log(res);
-        // });
+        this.clone.emit(repo);
     }
 
 }
