@@ -18,10 +18,11 @@ export class NGithubComponent implements OnInit {
        * */
     public repos: any[];
     @Input() token: string;
+    @Input() repofolder: any[];
     @Output() clone = new EventEmitter();
     constructor(private api: ApiService) {
     }
-    waiting: boolean = true;
+    waiting = true;
 
     ngOnInit() {
 

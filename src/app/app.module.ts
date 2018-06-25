@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import {BucketModule} from 'Bucket';
+// import {BucketModule} from 'Bucket';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NGithubModule} from 'NGithub';
@@ -14,7 +14,7 @@ import {NGithubModule} from 'NGithub';
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    BucketModule,
+    // BucketModule,
     NGithubModule,
     
   ],

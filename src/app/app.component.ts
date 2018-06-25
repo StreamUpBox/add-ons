@@ -8,7 +8,9 @@ import {Component} from '@angular/core';
 export class AppComponent {
     title = 'app';
     token = '6d713b27c0e8443aaa5e1d1bb2603a04cc75eb96';
-
+    repofolder = [{
+        name: 'ganza'
+    }];
     db() {
         console.log('double click');
     }
