@@ -19,7 +19,11 @@ export class NGithubComponent implements OnInit {
     public repos: any[];
     @Input() token: string;
     @Input() repofolder: any[];
+    @Input() processing ={is_loading : false, file: {id:0}};;
     @Output() clone = new EventEmitter();
+    @Output() pull = new EventEmitter();
+    @Output() push = new EventEmitter();
+    @Output() open = new EventEmitter();
     constructor(private api: ApiService) {
     }
     waiting = true;
@@ -27,23 +31,28 @@ export class NGithubComponent implements OnInit {
     ngOnInit() {
 
         const gh = new GitHub({
-            // username: 'richard457',
-            // password: 'fhdfjhjh@8r8r78bcbf!@&*'
-           //  also acceptable:
                token: this.token
-
         });
         const me = gh.getUser(); // no user specified defaults to the user for whom credentials were provided
         me.listRepos((err, repos) => {
             this.waiting = false;
             this.repos = repos;
-            console.log(repos);
         });
+        
     }
 
 // ng generate component foo --project=example-ng6-lib
-    takeAction(repo) {
+    cloneAction(repo) {
         this.clone.emit(repo);
+    }
+    pullAction(fd){
+    this.pull.emit(fd);
+    }
+     pushAction(fd){
+    this.push.emit(fd);
+    }
+    openAction(fd){
+      this.open.emit(fd);
     }
 
 }

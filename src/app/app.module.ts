@@ -16,7 +16,6 @@ import {NGithubModule} from 'NGithub';
     HttpClientModule,
     // BucketModule,
     NGithubModule,
-    
   ],
   providers: [],
   bootstrap: [AppComponent]
