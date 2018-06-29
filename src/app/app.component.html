@@ -1,4 +1,4 @@
 <!-- <A-Github></A-Github> -->
 <!--<A-Bucket></A-Bucket>-->
-<A-NGithub [token]="token" (clone)="clone($event)"></A-NGithub>
+<A-NGithub [token]="token" [repofolder]='repofolder' [processing]='processing' (clone)="cloneAction($event)" (pull)="pullAction($event)" (push)="pushAction($event)" (open)="openAction($event)"></A-NGithub>
 

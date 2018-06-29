@@ -8,7 +8,8 @@ import {Component} from '@angular/core';
 export class AppComponent {
     title = 'app';
     token = '6d713b27c0e8443aaa5e1d1bb2603a04cc75eb96';
-
+    repofolder = [];
+    processing = {is_loading : false, file: {id: 0}};
     db() {
         console.log('double click');
     }
@@ -17,8 +18,16 @@ export class AppComponent {
         console.log('single click');
     }
 
-    clone(repo) {
+    cloneAction(repo) {
         console.log(repo);
     }
-
+    pullAction(fd){
+    console.log('pull',fd);
+    }
+     pushAction(fd){
+    console.log('push',fd);
+    }
+     openAction(fd){
+    console.log('open',fd);
+    }
 }
